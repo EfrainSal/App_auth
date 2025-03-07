@@ -28,6 +28,7 @@ se agrego la utenticacion del usuario con las credednciales proporcionadas por e
 ![image](https://github.com/user-attachments/assets/bb528bb2-f171-4e5a-9d18-a83c3b1203a9)
 
 se agrego un gestor de tareas CRUD:
+
 ![image](https://github.com/user-attachments/assets/64f75e40-3715-4ca1-b636-2266781c003a)
 
 
