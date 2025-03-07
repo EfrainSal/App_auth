@@ -2,7 +2,7 @@ import { useContext, createContext } from 'react';
 import { useStorageState } from './useStorageState';
 
 const AuthContext = createContext({
-  signIn: (email, password) => null, // Acepta email y password
+  signIn: (email, password) => null, 
   signOut: () => null,
   session: null,
   isLoading: false,
@@ -24,17 +24,15 @@ export function SessionProvider({ children }) {
   const [[isLoading, session], setSession] = useStorageState('session');
 
   const signIn = (email, password) => {
-    // Credenciales de prueba
     const testEmail = 'usuario@ejemplo.com';
     const testPassword = 'password123';
 
     if (email === testEmail && password === testPassword) {
-      // Simulación de un token de sesión
       const fakeSessionToken = 'fake-session-token';
-      setSession(fakeSessionToken); // Establece la sesión
-      return true; // Indica que el inicio de sesión fue exitoso
+      setSession(fakeSessionToken); 
+      return true; 
     } else {
-      return false; // Indica que el inicio de sesión falló
+      return false; 
     }
   };
 
@@ -43,7 +41,7 @@ export function SessionProvider({ children }) {
       value={{
         signIn,
         signOut: () => {
-          setSession(null); // Limpia la sesión al cerrar sesión
+          setSession(null); 
         },
         session,
         isLoading,
