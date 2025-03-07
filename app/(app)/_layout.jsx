@@ -1,10 +1,10 @@
 import { Text } from 'react-native';
 import { Redirect, Stack } from 'expo-router';
-
+import { TouchableOpacity } from 'react-native';
 import { useSession } from '../../ctx';
 
 export default function AppLayout() {
-  const { session, isLoading } = useSession();
+  const { session, isLoading, signOut } = useSession();
 
   // You can keep the splash screen open, or render a loading screen like we do here.
   if (isLoading) {
@@ -20,5 +20,33 @@ export default function AppLayout() {
   }
 
   // This layout can be deferred because it's not the root layout.
-  return <Stack />;
+  return (
+    <Stack>
+      <Stack.Screen
+        name="index" 
+        options={{
+          title: "ToDo App", 
+          headerRight: () => (
+            <TouchableOpacity onPress={signOut} style={styles.logoutButton}>
+              <Text style={styles.logoutText}>Logout</Text>
+            </TouchableOpacity>
+          ),
+        }}
+      />
+    </Stack>
+  );
+
 }
+  const styles = {
+    logoutButton: {
+      marginRight: 9, 
+      padding: 10, 
+      backgroundColor: '#0000FF', 
+      borderRadius: 5, 
+      
+    },
+    logoutText: {
+      color: '#fff', 
+      fontWeight: 'bold',
+    },
+  };
